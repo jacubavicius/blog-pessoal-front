@@ -11,7 +11,7 @@ module.exports = {
         'mica-negra': '#333237',
         'soft': '#e9e2da',
         'citrus': '#ffad64',
-        'capadocia': '#fb8351'
+        'capadocia': '#fb8351'  
       },
     },
   },
