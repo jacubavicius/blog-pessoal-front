@@ -1,6 +1,6 @@
 import React from "react";
 import {
-  FacebookLogo,
+  GithubLogo,
   InstagramLogo,
   LinkedinLogo,
 } from "@phosphor-icons/react";
@@ -10,14 +10,14 @@ function Footer() {
     <>
       <div className="flex justify-center bg-azul-lago text-mica-negra">
         <div className="container flex flex-col items-center py-4">
-          <p className="text-xl font-bold">
-            Blog pessoal Generation | Copyright:{" "}
+          <p className="text-xl pb-2">
+            Blog Pessoal - Copyright:{" "}
           </p>
-          <p className="text-lg">Acesse nossas redes sociais</p>
+
           <div className="flex gap-2">
-            <LinkedinLogo size={48} weight="bold" />
-            <InstagramLogo size={48} weight="bold" />
-            <FacebookLogo size={48} weight="bold" />
+            <a href="https://github.com/jacubavicius"><GithubLogo size={40} color="#333237" weight="fill" /></a>
+            <a href="https://www.linkedin.com/in/gabriella-jacubavicius/"><LinkedinLogo size={40} color="#333237" weight="fill" /></a>
+            <a href="https://www.instagram.com/gabirux_/"><InstagramLogo size={40} color="#333237" weight="fill" /></a>
           </div>
         </div>
       </div>

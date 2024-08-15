@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { AuthContext } from '../../contexts/AuthContext'
 
+
 function Navbar() {
   let navigate = useNavigate()
 
@@ -19,9 +20,9 @@ function Navbar() {
   return (
     <>
       <div className="w-full bg-azul-lago text-mica-negra flex justify-center py-4">
-        <div className="container flex justify-between text-lg">
-          <div className="text-2xl font-bold uppercase">Blog Pessoal</div>
-
+        <div className="container flex justify-between text-xl">
+          <div className="text-2xl font-bold uppercase">Destinos Incríveis</div>
+          
           <div className='flex gap-4'>
             <div className='hover:underline'>Postagens</div>
             <Link to='/temas' className='hover:underline'>Temas</Link>
