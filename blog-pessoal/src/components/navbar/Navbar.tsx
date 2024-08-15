@@ -19,7 +19,7 @@ function Navbar() {
 
   return (
     <>
-      <div className="w-full bg-azul-lago text-mica-negra flex justify-center py-4">
+      <div className="w-full bg-sky-200 text-slat-950 flex justify-center py-4">
         <div className="container flex justify-between text-xl">
           <div className="text-2xl font-bold uppercase">Destinos Incríveis</div>
           

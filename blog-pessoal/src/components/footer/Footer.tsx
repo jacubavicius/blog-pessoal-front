@@ -8,16 +8,16 @@ import {
 function Footer() {
   return (
     <>
-      <div className="flex justify-center bg-azul-lago text-mica-negra">
+      <div className="flex justify-center bg-sky-200 text-slat-950">
         <div className="container flex flex-col items-center py-4">
           <p className="text-xl pb-2">
             Blog Pessoal - Copyright:{" "}
           </p>
 
           <div className="flex gap-2">
-            <a href="https://github.com/jacubavicius"><GithubLogo size={40} color="#333237" weight="fill" /></a>
-            <a href="https://www.linkedin.com/in/gabriella-jacubavicius/"><LinkedinLogo size={40} color="#333237" weight="fill" /></a>
-            <a href="https://www.instagram.com/gabirux_/"><InstagramLogo size={40} color="#333237" weight="fill" /></a>
+            <a href="https://github.com/jacubavicius"><GithubLogo size={40} color="#020617" weight="fill" /></a>
+            <a href="https://www.linkedin.com/in/gabriella-jacubavicius/"><LinkedinLogo size={40} color="#020617" weight="fill" /></a>
+            <a href="https://www.instagram.com/gabirux_/"><InstagramLogo size={40} color="#020617" weight="fill" /></a>
           </div>
         </div>
       </div>
