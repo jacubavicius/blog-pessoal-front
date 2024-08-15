@@ -1,8 +1,8 @@
-import React, { ChangeEvent, useContext, useEffect, useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
-import { AuthContext } from '../../../contexts/AuthContext';
-import Tema from '../../../models/Tema';
-import { atualizar, buscar, cadastrar } from '../../../services/Service';
+import React, { ChangeEvent, useContext, useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import { AuthContext } from "../../../contexts/AuthContext";
+import Tema from "../../../models/Tema";
+import { atualizar, buscar, cadastrar } from "../../../services/Service";
 
 function FormularioTema() {
   const [tema, setTema] = useState<Tema>({} as Tema);
@@ -24,100 +24,96 @@ function FormularioTema() {
 
   useEffect(() => {
     if (id !== undefined) {
-      buscarPorId(id)
+      buscarPorId(id);
     }
-  }, [id])
+  }, [id]);
 
   function atualizarEstado(e: ChangeEvent<HTMLInputElement>) {
     setTema({
       ...tema,
-      [e.target.name]: e.target.value
-    })
+      [e.target.name]: e.target.value,
+    });
 
-    console.log(JSON.stringify(tema))
+    console.log(JSON.stringify(tema));
   }
 
   async function gerarNovoTema(e: ChangeEvent<HTMLFormElement>) {
-    e.preventDefault()
+    e.preventDefault();
 
     if (id !== undefined) {
       try {
         await atualizar(`/temas`, tema, setTema, {
           headers: {
-            'Authorization': token
-          }
-        })
+            Authorization: token,
+          },
+        });
 
-        alert('Tema atualizado com sucesso')
-        retornar()
-
+        alert("Tema atualizado com sucesso");
+        retornar();
       } catch (error: any) {
-        if (error.toString().includes('403')) {
-          alert('O token expirou, favor logar novamente')
-          handleLogout()
+        if (error.toString().includes("403")) {
+          alert("O token expirou, favor logar novamente");
+          handleLogout();
         } else {
-          alert('Erro ao atualizar o Tema')
+          alert("Erro ao atualizar o Tema");
         }
-
       }
-
     } else {
       try {
         await cadastrar(`/temas`, tema, setTema, {
           headers: {
-            'Authorization': token
-          }
-        })
+            Authorization: token,
+          },
+        });
 
-        alert('Tema cadastrado com sucesso')
-
+        alert("Tema cadastrado com sucesso");
       } catch (error: any) {
-        if (error.toString().includes('403')) {
-          alert('O token expirou, favor logar novamente')
-          handleLogout()
+        if (error.toString().includes("403")) {
+          alert("O token expirou, favor logar novamente");
+          handleLogout();
         } else {
-          alert('Erro ao cadastrado o Tema')
+          alert("Erro ao cadastrado o Tema");
         }
       }
     }
 
-    retornar()
+    retornar();
   }
 
   function retornar() {
-    navigate("/temas")
+    navigate("/temas");
   }
 
   useEffect(() => {
-    if (token === '') {
-      alert('Você precisa estar logado');
-      navigate('/login');
+    if (token === "") {
+      alert("Você precisa estar logado");
+      navigate("/login");
     }
   }, [token]);
 
   return (
     <div className="container flex flex-col items-center justify-center mx-auto">
-      <h1 className="text-4xl text-center my-8">
-        {id === undefined ? 'Cadastre um novo tema' : 'Editar tema'}
+      <h1 className="text-4xl font-semibold text-slat-950 text-center my-8">
+        {id === undefined ? "Cadastrar um novo tema" : "Editar tema"}
       </h1>
 
       <form className="w-1/2 flex flex-col gap-4" onSubmit={gerarNovoTema}>
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-2 text-slat-950 text-lg">
           <label htmlFor="descricao">Descrição do tema</label>
           <input
             type="text"
             placeholder="Descrição"
-            name='descricao'
-            className="border-2 border-slate-700 rounded p-2"
+            name="descricao"
+            className="border-2 border-slate-950 rounded p-2"
             value={tema.descricao}
             onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
           />
         </div>
         <button
-          className="rounded text-slate-100 bg-indigo-400 hover:bg-indigo-800 w-1/2 py-2 mx-auto block"
+          className="rounded text-slate-100 bg-sky-300 hover:bg-sky-500 w-1/2 py-2 mx-auto block"
           type="submit"
         >
-          {id === undefined ? 'Cadastrar' : 'Editar'}
+          {id === undefined ? "Cadastrar" : "Editar"}
         </button>
       </form>
     </div>
